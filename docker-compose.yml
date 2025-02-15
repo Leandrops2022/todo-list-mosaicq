@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: postgres_db_todo
+    environment:
+      POSTGRES_USER: root 
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: todo_list
+    ports:
+      - "5433:5432"
+    volumes:
+      - todo_data_lps1402252051:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  todo_data_lps1402252051:

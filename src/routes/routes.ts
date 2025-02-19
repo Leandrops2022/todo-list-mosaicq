@@ -1,10 +1,21 @@
 import { Router } from 'express';
-import greetingRoutes from './greetingRoute';
-import tarefasRouter from './tarefasRoutes';
+import taskRouter from './taskRoutes';
+import userRouter from './userRoutes';
+import authenticateJWT from '../middleware/authenticateJwt';
+import authorizeUser from '../middleware/authorizeUser';
+import authRouter from './authRoutes';
 
-const appRouter = Router();
+const appRouter = Router({ mergeParams: true });
 
-appRouter.use('/greetings', greetingRoutes);
-appRouter.use('/tarefas', tarefasRouter);
+appRouter.use('/auth', authRouter);
+
+appRouter.use('/usuarios', userRouter);
+
+appRouter.use(
+  '/usuarios/:uid/tarefas',
+  authenticateJWT,
+  authorizeUser,
+  taskRouter
+);
 
 export default appRouter;

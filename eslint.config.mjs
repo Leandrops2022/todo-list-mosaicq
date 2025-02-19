@@ -13,6 +13,12 @@ export default [
   prettier, // Disables ESLint rules that conflict with Prettier
   {
     plugins: { prettier: pluginPrettier },
-    rules: { 'prettier/prettier': 'error' }, // Enforce Prettier as a rule
+    rules: {
+      'prettier/prettier': 'error',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_' },
+      ],
+    }, // Enforce Prettier as a rule
   },
 ];

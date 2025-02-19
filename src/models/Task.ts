@@ -3,11 +3,15 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { TaskStatus } from '../enums/TaskStatusEnum';
+import { User } from './User';
 
-@Entity({ name: 'tarefas' })
-export class Tarefa {
+@Entity({ name: 'tasks' })
+export class Task {
   @PrimaryGeneratedColumn()
   id!: number;
 
@@ -15,20 +19,24 @@ export class Tarefa {
   @IsNotEmpty({ message: 'O título é obrigatório' })
   @IsString({ message: 'O titulo deve ser uma string' })
   @MaxLength(50, { message: 'O título não pode ter mais de 50 caracteres' })
-  titulo!: string;
+  title!: string;
 
   @Column()
   @IsNotEmpty({ message: 'A descrição é obrigatória' })
   @IsString({ message: 'A descrição deve ser uma string' })
   @MaxLength(100, { message: 'A descrição deve ter no máximo 100 caracteres' })
-  descricao!: string;
+  description!: string;
 
   @Column({ default: 'pendente' })
-  @IsEnum(['pendente', 'em progresso', 'concluida'], {
+  @IsEnum(TaskStatus, {
     message: 'Status inválido',
   })
-  status!: 'pendente' | 'em progresso' | 'concluida';
+  status!: TaskStatus;
 
   @CreateDateColumn()
-  data_de_criacao!: Date;
+  created_at!: Date;
+
+  @ManyToOne(() => User, (user) => user.tasks, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'user_id' })
+  user!: User;
 }

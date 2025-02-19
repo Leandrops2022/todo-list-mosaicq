@@ -1,14 +1,16 @@
-CREATE TABLE IF NOT EXISTS usuarios (
+CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
-    nome VARCHAR(150) NOT NULL,
+    name VARCHAR(150) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
-    senha VARCHAR(12) NOT NULL
+    password VARCHAR(150) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS tarefas (
+CREATE TABLE IF NOT EXISTS tasks (
     id SERIAL PRIMARY KEY,
-    titulo VARCHAR(50) NOT NULL,
-    descricao VARCHAR(100) NOT NULL,
+    user_id INT NOT NULL,
+    title VARCHAR(50) NOT NULL,
+    description VARCHAR(100) NOT NULL,
     status VARCHAR(20) NOT NULL DEFAULT 'pendente' CHECK (status IN ('pendente', 'em progresso', 'concluida')),
-    data_de_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );

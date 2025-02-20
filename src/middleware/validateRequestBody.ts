@@ -2,11 +2,11 @@ import { ClassConstructor, plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
 import { NextFunction, Response, Request } from 'express';
 
-export const validateRequestBody = <T>(entityClass: ClassConstructor<T>) => {
+export const validateRequestBody = <T>(dto: ClassConstructor<T>) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const entity = plainToInstance(entityClass, req.body);
-      const errors = await validate(entity as object);
+      const dtoInstance = plainToInstance(dto, req.body);
+      const errors = await validate(dtoInstance as object);
 
       if (errors.length > 0) {
         const errorMessages = errors.flatMap((err) => {
@@ -18,7 +18,7 @@ export const validateRequestBody = <T>(entityClass: ClassConstructor<T>) => {
           .json({ message: 'A validação falhou', errors: errorMessages });
         return;
       }
-
+      req.body.dto = dtoInstance;
       next();
     } catch (error) {
       next(error);

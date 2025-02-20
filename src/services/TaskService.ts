@@ -1,38 +1,57 @@
 import { DeleteResult, UpdateResult } from 'typeorm';
 import { TaskRepository } from '../repositories/TaskRepository';
-import { Task } from '../models/Task';
 import { TaskStatus } from '../enums/TaskStatusEnum';
 import { ResponseData } from '../interfaces/ResponseData';
 import { NotFoundError } from '../errors/NotFoundError';
+import { UpdateTaskDto } from '../dtos/UpdateTaskDto';
+import { CreateTaskDto } from '../dtos/CreateTaskDto';
+import { BadRequestError } from '../errors/BadRequestError';
+import UnauthorizedError from '../errors/UnauthorizedError';
+import { plainToInstance } from 'class-transformer';
+import { TaskPresentationDto } from '../dtos/TaskPresentationDto';
 
 export class TaskService {
   private repository = TaskRepository;
 
-  public async createTask(task: Task, userId: number): Promise<ResponseData> {
-    const result = await this.repository
-      .createQueryBuilder()
-      .insert()
-      .into(Task)
-      .values({
-        ...task,
-        user: { id: userId },
-      })
-      .execute();
+  public async createTask(
+    dto: CreateTaskDto,
+    uid: number
+  ): Promise<ResponseData> {
+    const newTask = this.repository.create({
+      ...dto,
+      user: { id: uid },
+    });
 
+    const savedTask = await this.repository.save(newTask);
     return {
-      message: 'Sucess',
-      data: result,
+      message: 'Tarefa criada com sucesso',
+      data: savedTask,
     };
   }
 
   public async listAllUserTasks(userId: number): Promise<ResponseData> {
     const result = await this.repository.find({
+      select: {
+        id: true,
+        title: true,
+        status: true,
+        created_at: true,
+      },
       where: { user: { id: userId } },
     });
+    if (result.length > 0) {
+      const dtoArray = result.map((task) =>
+        plainToInstance(TaskPresentationDto, task)
+      );
 
+      return {
+        message: 'Tarefas carregadas com sucesso',
+        data: dtoArray,
+      };
+    }
     return {
-      message: 'Success',
-      data: result,
+      message: 'Tarefas carregadas com sucesso',
+      data: [],
     };
   }
 
@@ -47,25 +66,33 @@ export class TaskService {
 
     return {
       message: 'Tarefa encontrada',
-      data: result,
+      data: plainToInstance(TaskPresentationDto, result),
     };
   }
 
   public async updateTask(
-    id: number,
-    updateData: Partial<Task>
+    dto: UpdateTaskDto,
+    tid: number,
+    loggedUserId: number
   ): Promise<ResponseData> {
+    if (dto.id !== tid) {
+      throw new BadRequestError();
+    }
+
     const task = await this.repository.findOne({
-      where: { id },
+      where: { id: dto.id },
+      relations: ['user'],
     });
 
     if (!task) {
       throw new NotFoundError('Tarefa não encontrada');
     }
 
-    updateData.id = id;
+    if (task.user.id != loggedUserId) {
+      throw new UnauthorizedError();
+    }
 
-    const result = await this.repository.save(updateData);
+    const result = await this.repository.save(dto);
 
     return {
       message: 'Tarefa atualizada com sucesso',

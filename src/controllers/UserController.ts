@@ -1,8 +1,7 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
 import { asyncHandler } from '../middleware/asyncHandler';
 import { UserService } from '../services/UserService';
-import { plainToInstance } from 'class-transformer';
-import { User } from '../models/User';
+import { CustomRequest } from '../interfaces/CustomRequest';
 
 export class UserController {
   private userService: UserService;
@@ -11,16 +10,15 @@ export class UserController {
     this.userService = userService;
   }
 
-  updateUser = asyncHandler(async (req: Request, res: Response) => {
+  updateUser = asyncHandler(async (req: CustomRequest, res: Response) => {
     const { id } = req.params;
-    const updateData = plainToInstance(User, req.body);
 
     res
       .status(200)
-      .json(await this.userService.updateUser(parseInt(id), updateData));
+      .json(await this.userService.updateUser(parseInt(id), req.body));
   });
 
-  deleteUser = asyncHandler(async (req: Request, res: Response) => {
+  deleteUser = asyncHandler(async (req: CustomRequest, res: Response) => {
     const { id } = req.params;
 
     res.status(200).json(await this.userService.deleteUser(parseInt(id)));

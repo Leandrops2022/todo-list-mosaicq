@@ -17,6 +17,7 @@ const authenticateJWT = (
     const token = authHeader.split(' ')[1];
 
     jwt.verify(token, secret, (err, decoded) => {
+      console.log(decoded);
       if (err || !decoded) {
         res.status(403).json({
           message: 'Você não tem autorização para acessar este recurso',

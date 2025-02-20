@@ -1,0 +1,378 @@
+[2025-02-20T01:36:47.311Z] POST /api/auth/login - Error: Cannot read properties of undefined (reading 'email')
+Stack: TypeError: Cannot read properties of undefined (reading 'email')
+    at new LoginDto (/home/leandro/todo-project/src/dtos/LoginDto.ts:6:23)
+    at TransformOperationExecutor.transform (/home/leandro/todo-project/node_modules/src/TransformOperationExecutor.ts:160:22)
+    at ClassTransformer.plainToInstance (/home/leandro/todo-project/node_modules/src/ClassTransformer.ts:77:21)
+    at plainToInstance (/home/leandro/todo-project/node_modules/src/index.ts:84:27)
+    at /home/leandro/todo-project/src/middleware/validateRequestBody.ts:8:37
+    at Generator.next (<anonymous>)
+    at /home/leandro/todo-project/src/middleware/validateRequestBody.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (/home/leandro/todo-project/src/middleware/validateRequestBody.ts:4:12)
+    at /home/leandro/todo-project/src/middleware/validateRequestBody.ts:6:68
+
+[2025-02-20T01:47:18.885Z] POST /api/auth/login - Error: data and hash arguments required
+Stack: Error: data and hash arguments required
+    at compare (/home/leandro/todo-project/node_modules/bcrypt/bcrypt.js:208:17)
+    at /home/leandro/todo-project/node_modules/bcrypt/promises.js:29:12
+    at new Promise (<anonymous>)
+    at Object.module.exports.promise (/home/leandro/todo-project/node_modules/bcrypt/promises.js:20:12)
+    at compare (/home/leandro/todo-project/node_modules/bcrypt/bcrypt.js:204:25)
+    at AuthService.<anonymous> (/home/leandro/todo-project/src/services/AuthService.ts:36:42)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/AuthService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T01:48:00.266Z] POST /api/auth/login - Error: data and hash arguments required
+Stack: Error: data and hash arguments required
+    at compare (/home/leandro/todo-project/node_modules/bcrypt/bcrypt.js:208:17)
+    at /home/leandro/todo-project/node_modules/bcrypt/promises.js:29:12
+    at new Promise (<anonymous>)
+    at Object.module.exports.promise (/home/leandro/todo-project/node_modules/bcrypt/promises.js:20:12)
+    at compare (/home/leandro/todo-project/node_modules/bcrypt/bcrypt.js:204:25)
+    at AuthService.<anonymous> (/home/leandro/todo-project/src/services/AuthService.ts:37:42)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/AuthService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T02:21:02.846Z] GET /api/usuarios/4/tarefas/1 - Error: Tarefa não encontrada
+Stack: Error: Tarefa não encontrada
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:42:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T03:36:03.564Z] GET /api/usuarios/2/tarefas/1 - Error: Tarefa não encontrada
+Stack: Error: Tarefa não encontrada
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:45:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T03:49:24.444Z] PATCH /api/usuarios/2/tarefas/1 - Error: Requisição incorreta
+Stack: Error: Requisição incorreta
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:60:13)
+    at Generator.next (<anonymous>)
+    at /home/leandro/todo-project/src/services/TaskService.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (/home/leandro/todo-project/src/services/TaskService.ts:4:12)
+    at TaskService.updateTask (/home/leandro/todo-project/src/services/TaskService.ts:57:16)
+    at TaskController.<anonymous> (/home/leandro/todo-project/src/controllers/TaskController.ts:41:45)
+    at Generator.next (<anonymous>)
+    at /home/leandro/todo-project/src/controllers/TaskController.ts:8:71
+    at new Promise (<anonymous>)
+
+[2025-02-20T04:01:05.254Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:73:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:04:15.060Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:73:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:04:45.954Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:73:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:04:47.641Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:73:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:10:27.684Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:74:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:10:52.819Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:74:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:11:29.532Z] PATCH /api/usuarios/2/tarefas/1 - Error: Requisição incorreta
+Stack: Error: Requisição incorreta
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:66:13)
+    at Generator.next (<anonymous>)
+    at /home/leandro/todo-project/src/services/TaskService.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (/home/leandro/todo-project/src/services/TaskService.ts:4:12)
+    at TaskService.updateTask (/home/leandro/todo-project/src/services/TaskService.ts:61:16)
+    at TaskController.<anonymous> (/home/leandro/todo-project/src/controllers/TaskController.ts:42:45)
+    at Generator.next (<anonymous>)
+    at /home/leandro/todo-project/src/controllers/TaskController.ts:8:71
+    at new Promise (<anonymous>)
+
+[2025-02-20T04:11:35.874Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:77:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:12:32.245Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:73:27)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:13:06.391Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:73:44)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:13:41.503Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:73:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:13:54.216Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:74:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:14:07.247Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:73:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:15:02.864Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:73:27)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:15:25.015Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:73:27)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:16:25.582Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:73:27)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:16:42.069Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:73:27)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:16:59.066Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:73:27)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:17:34.200Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:75:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:17:46.240Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:75:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:18:00.323Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:75:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:18:13.442Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:75:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:18:39.909Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:73:48)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:19:15.084Z] PATCH /api/usuarios/2/tarefas/1 - Error: Cannot read properties of undefined (reading 'id')
+Stack: TypeError: Cannot read properties of undefined (reading 'id')
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:75:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:22:22.838Z] PATCH /api/usuarios/2/tarefas/1 - Error: Credenciais inválidas
+Stack: Error: Credenciais inválidas
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:77:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:22:41.702Z] PATCH /api/usuarios/2/tarefas/1 - Error: Credenciais inválidas
+Stack: Error: Credenciais inválidas
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:77:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:23:28.183Z] PATCH /api/usuarios/2/tarefas/1 - Error: Credenciais inválidas
+Stack: Error: Credenciais inválidas
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:75:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:24:49.863Z] PATCH /api/usuarios/2/tarefas/1 - Error: Credenciais inválidas. Você não tem permissão para acessar este recurso
+Stack: Error: Credenciais inválidas. Você não tem permissão para acessar este recurso
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:75:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:25:18.430Z] PATCH /api/usuarios/2/tarefas/1 - Error: Credenciais inválidas. Você não tem permissão para acessar este recurso
+Stack: Error: Credenciais inválidas. Você não tem permissão para acessar este recurso
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:75:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T04:25:33.328Z] PATCH /api/usuarios/2/tarefas/6 - Error: Requisição incorreta
+Stack: Error: Requisição incorreta
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:62:13)
+    at Generator.next (<anonymous>)
+    at /home/leandro/todo-project/src/services/TaskService.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (/home/leandro/todo-project/src/services/TaskService.ts:4:12)
+    at TaskService.updateTask (/home/leandro/todo-project/src/services/TaskService.ts:61:16)
+    at TaskController.<anonymous> (/home/leandro/todo-project/src/controllers/TaskController.ts:42:45)
+    at Generator.next (<anonymous>)
+    at /home/leandro/todo-project/src/controllers/TaskController.ts:8:71
+    at new Promise (<anonymous>)
+
+[2025-02-20T15:46:38.229Z] POST /api/auth/login - Error: Credenciais inválidas. Você não tem permissão para acessar este recurso
+Stack: Error: Credenciais inválidas. Você não tem permissão para acessar este recurso
+    at AuthService.<anonymous> (/home/leandro/todo-project/src/services/AuthService.ts:33:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/AuthService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T15:51:27.964Z] PATCH /api/usuarios/1/tarefas/7 - Error: Credenciais inválidas. Você não tem permissão para acessar este recurso
+Stack: Error: Credenciais inválidas. Você não tem permissão para acessar este recurso
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:75:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/leandro/todo-project/src/services/TaskService.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-20T15:51:35.382Z] PATCH /api/usuarios/1/tarefas/1 - Error: Requisição incorreta
+Stack: Error: Requisição incorreta
+    at TaskService.<anonymous> (/home/leandro/todo-project/src/services/TaskService.ts:62:13)
+    at Generator.next (<anonymous>)
+    at /home/leandro/todo-project/src/services/TaskService.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (/home/leandro/todo-project/src/services/TaskService.ts:4:12)
+    at TaskService.updateTask (/home/leandro/todo-project/src/services/TaskService.ts:61:16)
+    at TaskController.<anonymous> (/home/leandro/todo-project/src/controllers/TaskController.ts:42:45)
+    at Generator.next (<anonymous>)
+    at /home/leandro/todo-project/src/controllers/TaskController.ts:8:71
+    at new Promise (<anonymous>)
+
+[2025-02-20T17:08:30.731Z] GET /api/usuarios/1/tarefas - Error: Service Error
+Stack: Error: Service Error
+    at /home/leandro/todo-project/tests/integration/taskController.test.ts:204:21
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-20T20:20:23.504Z] GET /api/usuarios/1/tarefas - Error: Service Error
+Stack: Error: Service Error
+    at /home/leandro/todo-project/tests/integration/taskController.test.ts:204:21
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-20T20:56:23.504Z] GET /api/usuarios/1/tarefas - Error: Service Error
+Stack: Error: Service Error
+    at /home/leandro/todo-project/tests/integration/taskController.test.ts:217:21
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-20T21:12:25.841Z] PUT /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/tests/integration/userController.test.ts:66:9
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-20T21:12:25.848Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/tests/integration/userController.test.ts:100:9
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+

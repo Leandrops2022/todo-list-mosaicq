@@ -1,4 +1,10 @@
-import { IsEnum, IsNotEmpty, IsString, MaxLength } from 'class-validator';
+import {
+  IsEnum,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  MaxLength,
+} from 'class-validator';
 import {
   Column,
   CreateDateColumn,
@@ -15,25 +21,25 @@ export class Task {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50 })
   @IsNotEmpty({ message: 'O título é obrigatório' })
   @IsString({ message: 'O titulo deve ser uma string' })
-  @MaxLength(50, { message: 'O título não pode ter mais de 50 caracteres' })
+  @MaxLength(150, { message: 'O título não pode ter mais de 50 caracteres' })
   title!: string;
 
-  @Column()
-  @IsNotEmpty({ message: 'A descrição é obrigatória' })
+  @Column({ type: 'text' })
+  @IsOptional()
   @IsString({ message: 'A descrição deve ser uma string' })
-  @MaxLength(100, { message: 'A descrição deve ter no máximo 100 caracteres' })
-  description!: string;
+  @MaxLength(400, { message: 'A descrição deve ter no máximo 400 caracteres' })
+  description?: string;
 
-  @Column({ default: 'pendente' })
+  @Column({ type: 'enum', enum: TaskStatus, default: TaskStatus.PENDING })
   @IsEnum(TaskStatus, {
     message: 'Status inválido',
   })
   status!: TaskStatus;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ type: 'date' })
   created_at!: Date;
 
   @ManyToOne(() => User, (user) => user.tasks, { onDelete: 'CASCADE' })

@@ -13,11 +13,11 @@ export class UserService {
     const result = this.userRepository.update(id, { ...updateData });
 
     if ((await result).affected === 0) {
-      throw new NotFoundError('The user was not found');
+      throw new NotFoundError('Usuário não encontrado');
     }
 
     return {
-      message: 'User successfully updated!',
+      message: 'Dados atualizados com sucesso',
       data: true,
     };
   }
@@ -25,11 +25,11 @@ export class UserService {
   public async deleteUser(id: number): Promise<ResponseData> {
     const result = this.userRepository.delete(id);
     if ((await result).affected === 0) {
-      throw new NotFoundError('The user was not found');
+      throw new NotFoundError('Usuário não encontrado');
     }
 
     return {
-      message: 'User succesfully deleted',
+      message: 'Usuário deletado com sucesso',
       data: true,
     };
   }

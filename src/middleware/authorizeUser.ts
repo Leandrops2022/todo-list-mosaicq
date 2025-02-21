@@ -7,13 +7,14 @@ const authorizeUser = (
   next: NextFunction
 ): void => {
   const { uid } = req.params;
-  console.log(uid);
   const user = req.user as AuthenticatedUser;
+  console.log(user.id == parseInt(uid));
+  console.log(uid);
 
-  if (!uid || parseInt(uid) !== user.id) {
+  if (!uid || parseInt(uid) != user.id) {
     res.status(403).json({
       message:
-        'Sem permissão: você não tem permissão para acessar as tarefas desse usuário',
+        'Sem permissão: você não tem permissão para acessar este recurso',
     });
     return;
   }

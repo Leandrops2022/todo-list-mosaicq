@@ -14,7 +14,6 @@ export class UpdateUserDto {
   @IsNotEmpty({ message: 'Você deve informar a id do usuario' })
   @Type(() => Number)
   id!: number;
-
   @IsOptional()
   @IsString({ message: 'O nome deve ser uma string' })
   @MaxLength(150, { message: 'O nome deve ter no máximo 150 caracteres' })

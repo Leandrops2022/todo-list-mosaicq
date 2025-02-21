@@ -1,6 +1,6 @@
+import { UpdateUserDto } from '../dtos/UpdateUserDto';
 import { NotFoundError } from '../errors/NotFoundError';
 import { ResponseData } from '../interfaces/ResponseData';
-import { User } from '../models/User';
 import { UserRepository } from '../repositories/UserRepository';
 
 export class UserService {
@@ -8,9 +8,9 @@ export class UserService {
 
   public async updateUser(
     id: number,
-    updateData: Partial<User>
+    dto: UpdateUserDto
   ): Promise<ResponseData> {
-    const result = this.userRepository.update(id, { ...updateData });
+    const result = this.userRepository.update(id, dto);
 
     if ((await result).affected === 0) {
       throw new NotFoundError('Usuário não encontrado');

@@ -22,9 +22,8 @@ describe('UserController Integration Tests', () => {
 
     userController = new UserController(userService);
 
-    // Use the correct route prefix as defined in your controller
-    app.put('/api/usuarios/:id', userController.updateUser);
-    app.delete('/api/usuarios/:id', userController.deleteUser);
+    app.patch('/api/usuarios/:uid', userController.updateUser);
+    app.delete('/api/usuarios/:uid', userController.deleteUser);
 
     app.use(errorHandler);
   });
@@ -33,7 +32,7 @@ describe('UserController Integration Tests', () => {
     vi.clearAllMocks();
   });
 
-  describe('PUT /api/usuarios/:id', () => {
+  describe('PATCH /api/usuarios/:uid', () => {
     it('should update a user and return success', async () => {
       const userId = 1;
       const updateData = {
@@ -49,8 +48,8 @@ describe('UserController Integration Tests', () => {
       vi.mocked(userService.updateUser).mockResolvedValue(serviceResponse);
 
       const response = await request(app)
-        .put(`/api/usuarios/${userId}`)
-        .send(updateData);
+        .patch(`/api/usuarios/${userId}`)
+        .send({ dto: updateData });
 
       expect(response.status).toBe(200);
       expect(userService.updateUser).toHaveBeenCalledWith(userId, updateData);
@@ -67,7 +66,7 @@ describe('UserController Integration Tests', () => {
       );
 
       const response = await request(app)
-        .put(`/api/usuarios/${userId}`)
+        .patch(`/api/usuarios/${userId}`)
         .send(updateData);
 
       expect(response.status).toBe(404);
@@ -75,7 +74,7 @@ describe('UserController Integration Tests', () => {
     });
   });
 
-  describe('DELETE /api/usuarios/:id', () => {
+  describe('DELETE /api/usuarios/:uid', () => {
     it('should delete a user and return success', async () => {
       const userId = 1;
       const serviceResponse = {

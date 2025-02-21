@@ -1,0 +1,455 @@
+openapi: 3.0.0
+info:
+  title: Todo Project API
+  version: "1.0.0"
+  description: >
+    This is the API documentation for the Todo Project.
+    It includes endpoints for managing tasks, user authentication, and user management.
+servers:
+  - url: http://localhost:3000
+paths:
+  # ----------------------- TASK ENDPOINTS -----------------------
+  /api/usuarios/{uid}/tarefas:
+    get:
+      tags:
+        - Tasks
+      summary: List all tasks for a user
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: integer
+          description: The ID of the user.
+      responses:
+        '200':
+          description: Tasks loaded successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Task'
+    post:
+      tags:
+        - Tasks
+      summary: Create a new task
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: integer
+          description: The ID of the user.
+      requestBody:
+        description: Task data.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTaskDto'
+      responses:
+        '201':
+          description: Task created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Task'
+  /api/usuarios/{uid}/tarefas/{tid}:
+    get:
+      tags:
+        - Tasks
+      summary: Get a task by ID
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: integer
+          description: The user ID.
+        - in: path
+          name: tid
+          required: true
+          schema:
+            type: integer
+          description: The task ID.
+      responses:
+        '200':
+          description: Task found successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Task'
+    patch:
+      tags:
+        - Tasks
+      summary: Update an existing task
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: integer
+          description: The user ID.
+        - in: path
+          name: tid
+          required: true
+          schema:
+            type: integer
+          description: The task ID.
+      requestBody:
+        description: Task update data.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTaskDto'
+      responses:
+        '200':
+          description: Task updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Task'
+    delete:
+      tags:
+        - Tasks
+      summary: Delete a task
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: integer
+          description: The user ID.
+        - in: path
+          name: tid
+          required: true
+          schema:
+            type: integer
+          description: The task ID.
+      responses:
+        '200':
+          description: Task deleted successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: boolean
+  /api/usuarios/{uid}/tarefas/{tid}/completa:
+    patch:
+      tags:
+        - Tasks
+      summary: Mark a task as done
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: integer
+          description: The user ID.
+        - in: path
+          name: tid
+          required: true
+          schema:
+            type: integer
+          description: The task ID.
+      responses:
+        '200':
+          description: Task marked as done successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: boolean
+
+  # ----------------------- AUTH ENDPOINTS -----------------------
+  /api/auth/criar-usuario:
+    post:
+      tags:
+        - Authentication
+      summary: Create a new user (register)
+      description: Registers a new user and returns an authentication token.
+      requestBody:
+        description: User registration data.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
+      responses:
+        '201':
+          description: User created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '400':
+          description: Bad Request
+  /api/auth/login:
+    post:
+      tags:
+        - Authentication
+      summary: Login user
+      description: Authenticates a user and returns an authentication token.
+      requestBody:
+        description: Login credentials.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginDto'
+      responses:
+        '200':
+          description: Logged in successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '401':
+          description: Unauthorized
+
+  # ----------------------- USER ENDPOINTS -----------------------
+  /api/usuarios/{id}:
+    patch:
+      tags:
+        - Users
+      summary: Update user information
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The user ID.
+      requestBody:
+        description: User update data.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUser'
+      responses:
+        '200':
+          description: User updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: boolean
+        '404':
+          description: User not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+    delete:
+      tags:
+        - Users
+      summary: Delete a user
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The user ID.
+      responses:
+        '200':
+          description: User deleted successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: boolean
+        '404':
+          description: User not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+components:
+  schemas:
+    Task:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+            - pendente
+            - em progresso
+            - concluida
+        created_at:
+          type: string
+          format: date-time
+        user:
+          $ref: '#/components/schemas/User'
+    CreateTaskDto:
+      type: object
+      required:
+        - title
+        - description
+        - status
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+            - pendente
+            - em progresso
+            - concluida
+    UpdateTaskDto:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+            - pendente
+            - em progresso
+            - concluida
+          default: pendente
+
+    CreateUserDto:
+      type: object
+      required:
+        - name
+        - email
+        - password
+      properties:
+        name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          maxLength: 100
+        password:
+          type: string
+          minLength: 4
+          maxLength: 12
+    LoginDto:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+          maxLength: 100
+        password:
+          type: string
+          minLength: 4
+          maxLength: 12
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+    AuthResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/User'
+        token:
+          type: string
+    UpdateUser:
+      type: object
+      properties:
+        id:
+          type: number
+          description: user id
+        name:
+          type: string
+          description: Updated user's name
+        email:
+          type: string
+          format: email
+          description: Updated user's email
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

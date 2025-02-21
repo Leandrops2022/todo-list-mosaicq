@@ -376,3 +376,208 @@ Stack: Error: Usuário não encontrado
     at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
     at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
 
+[2025-02-21T00:31:08.213Z] POST /api/auth/criar-usuario - Error: duplicate key value violates unique constraint "users_email_key"
+Stack: QueryFailedError: duplicate key value violates unique constraint "users_email_key"
+    at PostgresQueryRunner.query (/home/leandro/todo-project/src/driver/postgres/PostgresQueryRunner.ts:331:19)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at InsertQueryBuilder.execute (/home/leandro/todo-project/src/query-builder/InsertQueryBuilder.ts:163:33)
+    at SubjectExecutor.executeInsertOperations (/home/leandro/todo-project/src/persistence/SubjectExecutor.ts:435:42)
+    at SubjectExecutor.execute (/home/leandro/todo-project/src/persistence/SubjectExecutor.ts:137:9)
+    at EntityPersistExecutor.execute (/home/leandro/todo-project/src/persistence/EntityPersistExecutor.ts:182:21)
+
+[2025-02-21T01:53:47.486Z] POST /api/usuarios/7/tarefas - Error: Expected ',' or '}' after property value in JSON at position 47
+Stack: SyntaxError: Expected ',' or '}' after property value in JSON at position 47
+    at JSON.parse (<anonymous>)
+    at parse (/home/leandro/todo-project/node_modules/body-parser/lib/types/json.js:92:19)
+    at /home/leandro/todo-project/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:206:9)
+    at invokeCallback (/home/leandro/todo-project/node_modules/raw-body/index.js:238:16)
+    at done (/home/leandro/todo-project/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/home/leandro/todo-project/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:519:28)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+[2025-02-21T02:28:08.001Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/tests/integration/userController.test.ts:99:9
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-21T02:31:29.777Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/tests/integration/userController.test.ts:99:9
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-21T02:36:43.890Z] PATCH /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/tests/integration/userController.test.ts:65:9
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-21T02:36:43.897Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/tests/integration/userController.test.ts:99:9
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-21T02:49:12.522Z] PATCH /api/usuarios/7 - Error: Property "dto" was not found in "User". Make sure your query is correct.
+Stack: EntityPropertyNotFoundError: Property "dto" was not found in "User". Make sure your query is correct.
+    at /home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:500:31
+    at Array.forEach (<anonymous>)
+    at UpdateQueryBuilder.createUpdateExpression (/home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:493:68)
+    at UpdateQueryBuilder.getQuery (/home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:53:21)
+    at UpdateQueryBuilder.getQueryAndParameters (/home/leandro/todo-project/src/query-builder/QueryBuilder.ts:495:28)
+    at UpdateQueryBuilder.execute (/home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:142:50)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-21T02:52:18.087Z] PATCH /api/usuarios/7 - Error: Property "dto" was not found in "User". Make sure your query is correct.
+Stack: EntityPropertyNotFoundError: Property "dto" was not found in "User". Make sure your query is correct.
+    at /home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:500:31
+    at Array.forEach (<anonymous>)
+    at UpdateQueryBuilder.createUpdateExpression (/home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:493:68)
+    at UpdateQueryBuilder.getQuery (/home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:53:21)
+    at UpdateQueryBuilder.getQueryAndParameters (/home/leandro/todo-project/src/query-builder/QueryBuilder.ts:495:28)
+    at UpdateQueryBuilder.execute (/home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:142:50)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-21T02:52:56.688Z] PATCH /api/usuarios/7 - Error: Property "dto" was not found in "User". Make sure your query is correct.
+Stack: EntityPropertyNotFoundError: Property "dto" was not found in "User". Make sure your query is correct.
+    at /home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:500:31
+    at Array.forEach (<anonymous>)
+    at UpdateQueryBuilder.createUpdateExpression (/home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:493:68)
+    at UpdateQueryBuilder.getQuery (/home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:53:21)
+    at UpdateQueryBuilder.getQueryAndParameters (/home/leandro/todo-project/src/query-builder/QueryBuilder.ts:495:28)
+    at UpdateQueryBuilder.execute (/home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:142:50)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-21T02:54:27.816Z] PATCH /api/usuarios/7 - Error: Property "dto" was not found in "User". Make sure your query is correct.
+Stack: EntityPropertyNotFoundError: Property "dto" was not found in "User". Make sure your query is correct.
+    at /home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:500:31
+    at Array.forEach (<anonymous>)
+    at UpdateQueryBuilder.createUpdateExpression (/home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:493:68)
+    at UpdateQueryBuilder.getQuery (/home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:53:21)
+    at UpdateQueryBuilder.getQueryAndParameters (/home/leandro/todo-project/src/query-builder/QueryBuilder.ts:495:28)
+    at UpdateQueryBuilder.execute (/home/leandro/todo-project/src/query-builder/UpdateQueryBuilder.ts:142:50)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+[2025-02-21T03:02:29.235Z] PATCH /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/tests/integration/userController.test.ts:65:9
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-21T03:02:29.240Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/tests/integration/userController.test.ts:99:9
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-21T03:17:27.405Z] PATCH /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/tests/integration/userController.test.ts:65:9
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-21T03:17:27.412Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/tests/integration/userController.test.ts:99:9
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-21T03:17:59.563Z] GET /api/usuarios/1/tarefas - Error: Service Error
+Stack: Error: Service Error
+    at /home/leandro/todo-project/tests/integration/taskController.test.ts:217:21
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-21T03:17:59.586Z] PATCH /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/tests/integration/userController.test.ts:65:9
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-21T03:17:59.596Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/tests/integration/userController.test.ts:99:9
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+

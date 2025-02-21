@@ -6,14 +6,14 @@
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "format": "prettier --write 'src/**/*.{ts,tsx}'",
     "build": "tsc",
-    "start": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "start": "node dist/index.js",
     "dev": "ts-node-dev src/index.ts",
     "test": "vitest --coverage"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["todo list, to-do list"],
+  "author": "Leandro Soares",
   "license": "ISC",
-  "description": "",
+  "description": "Simple to-do list api implementation using docker containers to host the app and postgres database",
   "devDependencies": {
     "@eslint/js": "^9.20.0",
     "@types/bcrypt": "^5.0.2",

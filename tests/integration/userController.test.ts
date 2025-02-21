@@ -15,6 +15,12 @@ describe('UserController Integration Tests', () => {
     app = express();
     app.use(express.json());
 
+    // Dummy middleware to add req.user
+    app.use((req, res, next) => {
+      req.user = { id: 1, username: 'testuser' };
+      next();
+    });
+
     userService = {
       updateUser: vi.fn(),
       deleteUser: vi.fn(),

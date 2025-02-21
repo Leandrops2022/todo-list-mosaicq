@@ -11,16 +11,14 @@ export class UserController {
   }
 
   updateUser = asyncHandler(async (req: CustomRequest, res: Response) => {
-    const { uid } = req.params;
+    const uid = req.user!.id;
     const updateDto = req.body.dto;
-    res
-      .status(200)
-      .json(await this.userService.updateUser(parseInt(uid), updateDto));
+    res.status(200).json(await this.userService.updateUser(uid, updateDto));
   });
 
   deleteUser = asyncHandler(async (req: CustomRequest, res: Response) => {
-    const { uid } = req.params;
+    const uid = req.user!.id;
 
-    res.status(200).json(await this.userService.deleteUser(parseInt(uid)));
+    res.status(200).json(await this.userService.deleteUser(uid));
   });
 }

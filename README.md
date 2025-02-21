@@ -85,6 +85,7 @@ Se o Docker não estiver instalado, acesse docker.com e siga as instruções par
 5. ### Acesse a aplicação:
 
     A API estará disponível em: http://localhost:3000
+    
     A documentação Swagger estará disponível em: http://localhost:3000/api-docs
 
 

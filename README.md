@@ -67,9 +67,9 @@ Se o Docker não estiver instalado, acesse docker.com e siga as instruções par
 
 3. ### Execute o comando para criar a build do projeto:
 
-```bash
-npm run build
-```
+   ```bash
+   npm run build
+   ```
 
 4. ### Suba os contêineres com Docker Compose:
 

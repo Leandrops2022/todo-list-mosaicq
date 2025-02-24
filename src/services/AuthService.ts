@@ -1,5 +1,4 @@
 import UnauthorizedError from '../errors/UnauthorizedError';
-import { ResponseData } from '../interfaces/ResponseData';
 import { User } from '../models/User';
 import { UserRepository } from '../repositories/UserRepository';
 import { compare, hash } from 'bcrypt';
@@ -13,21 +12,30 @@ const secret = getEnvVariables().JWT_SECRET;
 export class AuthService {
   private repository = UserRepository;
 
-  public async createUser(dto: CreateUserDto): Promise<ResponseData> {
+  public async createUser(dto: CreateUserDto) {
     const saltRounds = 10;
     dto.password = await hash(dto.password, saltRounds);
     const createdUser = await this.repository.save(dto);
     const token = this.createToken(createdUser);
 
+    const userData = {
+      name: createdUser.name,
+      email: createdUser.email,
+      id: createdUser.id,
+    };
+
     return {
-      message: 'User created successfully!',
-      data: createdUser,
+      message: 'Usuário criado com sucesso!',
+      data: userData,
       token: token,
     };
   }
 
-  public async login(dto: LoginDto): Promise<ResponseData> {
-    const user = await this.repository.findOne({ where: { email: dto.email } });
+  public async login(dto: LoginDto) {
+    const user = await this.repository.findOne({
+      select: { name: true, email: true, id: true },
+      where: { email: dto.email },
+    });
 
     if (!user) {
       throw new UnauthorizedError();

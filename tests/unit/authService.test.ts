@@ -18,6 +18,7 @@ vi.mock('jsonwebtoken', () => ({
 
 const mockUser = {
   id: 1,
+  name: 'TestUser',
   email: 'test@example.com',
   password: 'hashedpassword',
 };
@@ -44,11 +45,13 @@ describe('AuthService', () => {
       name: 'Simple test',
     });
 
+    console.log(result);
+
     expect(hash).toHaveBeenCalledWith('plaintext', 10);
     expect(UserRepository.save).toHaveBeenCalled();
     expect(result).toEqual({
-      message: 'User created successfully!',
-      data: { ...mockUser, password: hashedPassword },
+      data: { email: mockUser.email, id: mockUser.id, name: mockUser.name },
+      message: 'Usuário criado com sucesso!',
       token: 'fakeToken',
     });
   });
@@ -63,6 +66,11 @@ describe('AuthService', () => {
     const result = await authService.login(loginDto);
 
     expect(UserRepository.findOne).toHaveBeenCalledWith({
+      select: {
+        email: true,
+        id: true,
+        name: true,
+      },
       where: { email: loginDto.email },
     });
     expect(compare).toHaveBeenCalledWith(loginDto.password, mockUser.password);

@@ -13,6 +13,9 @@ export interface ResponseData {
     | User[]
     | InsertResult
     | TaskPresentationDto
-    | TaskPresentationDto[];
+    | TaskPresentationDto[]
+    | string
+    | number;
+
   token?: string;
 }

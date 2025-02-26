@@ -10,12 +10,14 @@ export class TaskController {
     this.taskService = taskService;
   }
 
-  listAllUserTasks = asyncHandler(async (req: CustomRequest, res: Response) => {
-    const { uid } = req.params;
-    res
-      .status(200)
-      .json(await this.taskService.listAllUserTasks(parseInt(uid)));
-  });
+  public listAllUserTasks = asyncHandler(
+    async (req: CustomRequest, res: Response) => {
+      const { uid } = req.params;
+      res
+        .status(200)
+        .json(await this.taskService.listAllUserTasks(parseInt(uid)));
+    }
+  );
 
   public getTaskById = asyncHandler(
     async (req: CustomRequest, res: Response) => {
@@ -28,11 +30,13 @@ export class TaskController {
     }
   );
 
-  createTask = asyncHandler(async (req: CustomRequest, res: Response) => {
-    const { dto } = req.body;
-    const uid = req.user?.id;
-    res.status(201).json(await this.taskService.createTask(dto, uid!));
-  });
+  public createTask = asyncHandler(
+    async (req: CustomRequest, res: Response) => {
+      const { dto } = req.body;
+      const uid = req.user?.id;
+      res.status(201).json(await this.taskService.createTask(dto, uid!));
+    }
+  );
 
   public updateTask = asyncHandler(
     async (req: CustomRequest, res: Response) => {

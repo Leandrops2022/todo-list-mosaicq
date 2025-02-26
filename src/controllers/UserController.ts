@@ -10,15 +10,19 @@ export class UserController {
     this.userService = userService;
   }
 
-  updateUser = asyncHandler(async (req: CustomRequest, res: Response) => {
-    const uid = req.user!.id;
-    const updateDto = req.body.dto;
-    res.status(200).json(await this.userService.updateUser(uid, updateDto));
-  });
+  public updateUser = asyncHandler(
+    async (req: CustomRequest, res: Response) => {
+      const uid = req.user!.id;
+      const updateDto = req.body.dto;
+      res.status(200).json(await this.userService.updateUser(uid, updateDto));
+    }
+  );
 
-  deleteUser = asyncHandler(async (req: CustomRequest, res: Response) => {
-    const uid = req.user!.id;
+  public deleteUser = asyncHandler(
+    async (req: CustomRequest, res: Response) => {
+      const uid = req.user!.id;
 
-    res.status(200).json(await this.userService.deleteUser(uid));
-  });
+      res.status(200).json(await this.userService.deleteUser(uid));
+    }
+  );
 }

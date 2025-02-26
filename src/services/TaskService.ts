@@ -13,19 +13,25 @@ import { TaskPresentationDto } from '../dtos/TaskPresentationDto';
 export class TaskService {
   private repository = TaskRepository;
 
-  public async createTask(
-    dto: CreateTaskDto,
-    uid: number
-  ): Promise<ResponseData> {
+  public async createTask(dto: CreateTaskDto, uid: number) {
     const newTask = this.repository.create({
       ...dto,
       user: { id: uid },
     });
 
     const savedTask = await this.repository.save(newTask);
+
+    const recentTask = await this.repository.findOne({
+      where: { id: savedTask.id },
+    });
+
+    const dtoTask = plainToInstance(TaskPresentationDto, recentTask, {
+      excludeExtraneousValues: true,
+    });
+
     return {
       message: 'Tarefa criada com sucesso',
-      data: savedTask,
+      data: dtoTask,
     };
   }
 
@@ -35,13 +41,16 @@ export class TaskService {
         id: true,
         title: true,
         status: true,
+        description: true,
         created_at: true,
       },
       where: { user: { id: userId } },
     });
     if (result.length > 0) {
       const dtoArray = result.map((task) =>
-        plainToInstance(TaskPresentationDto, task)
+        plainToInstance(TaskPresentationDto, task, {
+          excludeExtraneousValues: true,
+        })
       );
 
       return {
@@ -66,7 +75,9 @@ export class TaskService {
 
     return {
       message: 'Tarefa encontrada',
-      data: plainToInstance(TaskPresentationDto, result),
+      data: plainToInstance(TaskPresentationDto, result, {
+        excludeExtraneousValues: true,
+      }),
     };
   }
 
@@ -92,11 +103,16 @@ export class TaskService {
       throw new UnauthorizedError();
     }
 
-    const result = await this.repository.save(dto);
+    const updatedTask = Object.assign(task, dto);
+
+    const result = await this.repository.save(updatedTask);
+    const presentationDto = plainToInstance(TaskPresentationDto, result, {
+      excludeExtraneousValues: true,
+    });
 
     return {
       message: 'Tarefa atualizada com sucesso',
-      data: result,
+      data: presentationDto,
     };
   }
 

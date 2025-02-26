@@ -1,17 +1,30 @@
-[2025-02-21T20:03:07.802Z] PATCH /api/usuarios/1 - Error: Cannot read properties of undefined (reading 'id')
-Stack: TypeError: Cannot read properties of undefined (reading 'id')
-    at /home/leandro/todo-project/src/controllers/UserController.ts:14:27
-    at /home/leandro/todo-project/src/middleware/asyncHandler.ts:6:21
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at next (/home/leandro/todo-project/node_modules/express/lib/router/route.js:149:13)
-    at Route.dispatch (/home/leandro/todo-project/node_modules/express/lib/router/route.js:119:3)
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at /home/leandro/todo-project/node_modules/express/lib/router/index.js:284:15
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:365:14)
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:376:14)
-    at Function.process_params (/home/leandro/todo-project/node_modules/express/lib/router/index.js:421:3)
+[2025-02-26T20:34:05.044Z] PATCH /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/tests/integration/userController.test.ts:71:9
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
 
-[2025-02-21T20:03:07.814Z] GET /api/usuarios/1/tarefas - Error: Service Error
+[2025-02-26T20:34:05.053Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/tests/integration/userController.test.ts:105:9
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-26T20:34:05.051Z] GET /api/usuarios/1/tarefas - Error: Service Error
 Stack: Error: Service Error
     at /home/leandro/todo-project/tests/integration/taskController.test.ts:217:21
     at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
@@ -24,98 +37,7 @@ Stack: Error: Service Error
     at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
     at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
 
-[2025-02-21T20:03:07.821Z] PATCH /api/usuarios/1 - Error: Cannot read properties of undefined (reading 'id')
-Stack: TypeError: Cannot read properties of undefined (reading 'id')
-    at /home/leandro/todo-project/src/controllers/UserController.ts:14:27
-    at /home/leandro/todo-project/src/middleware/asyncHandler.ts:6:21
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at next (/home/leandro/todo-project/node_modules/express/lib/router/route.js:149:13)
-    at Route.dispatch (/home/leandro/todo-project/node_modules/express/lib/router/route.js:119:3)
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at /home/leandro/todo-project/node_modules/express/lib/router/index.js:284:15
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:365:14)
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:376:14)
-    at Function.process_params (/home/leandro/todo-project/node_modules/express/lib/router/index.js:421:3)
-
-[2025-02-21T20:03:07.825Z] DELETE /api/usuarios/1 - Error: Cannot read properties of undefined (reading 'id')
-Stack: TypeError: Cannot read properties of undefined (reading 'id')
-    at /home/leandro/todo-project/src/controllers/UserController.ts:20:27
-    at /home/leandro/todo-project/src/middleware/asyncHandler.ts:6:21
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at next (/home/leandro/todo-project/node_modules/express/lib/router/route.js:149:13)
-    at Route.dispatch (/home/leandro/todo-project/node_modules/express/lib/router/route.js:119:3)
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at /home/leandro/todo-project/node_modules/express/lib/router/index.js:284:15
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:365:14)
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:376:14)
-    at Function.process_params (/home/leandro/todo-project/node_modules/express/lib/router/index.js:421:3)
-
-[2025-02-21T20:03:07.827Z] DELETE /api/usuarios/1 - Error: Cannot read properties of undefined (reading 'id')
-Stack: TypeError: Cannot read properties of undefined (reading 'id')
-    at /home/leandro/todo-project/src/controllers/UserController.ts:20:27
-    at /home/leandro/todo-project/src/middleware/asyncHandler.ts:6:21
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at next (/home/leandro/todo-project/node_modules/express/lib/router/route.js:149:13)
-    at Route.dispatch (/home/leandro/todo-project/node_modules/express/lib/router/route.js:119:3)
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at /home/leandro/todo-project/node_modules/express/lib/router/index.js:284:15
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:365:14)
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:376:14)
-    at Function.process_params (/home/leandro/todo-project/node_modules/express/lib/router/index.js:421:3)
-
-[2025-02-21T20:09:27.771Z] PATCH /api/usuarios/1 - Error: Cannot read properties of undefined (reading 'id')
-Stack: TypeError: Cannot read properties of undefined (reading 'id')
-    at /home/leandro/todo-project/src/controllers/UserController.ts:14:27
-    at /home/leandro/todo-project/src/middleware/asyncHandler.ts:6:21
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at next (/home/leandro/todo-project/node_modules/express/lib/router/route.js:149:13)
-    at Route.dispatch (/home/leandro/todo-project/node_modules/express/lib/router/route.js:119:3)
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at /home/leandro/todo-project/node_modules/express/lib/router/index.js:284:15
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:365:14)
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:376:14)
-    at Function.process_params (/home/leandro/todo-project/node_modules/express/lib/router/index.js:421:3)
-
-[2025-02-21T20:09:27.781Z] PATCH /api/usuarios/1 - Error: Cannot read properties of undefined (reading 'id')
-Stack: TypeError: Cannot read properties of undefined (reading 'id')
-    at /home/leandro/todo-project/src/controllers/UserController.ts:14:27
-    at /home/leandro/todo-project/src/middleware/asyncHandler.ts:6:21
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at next (/home/leandro/todo-project/node_modules/express/lib/router/route.js:149:13)
-    at Route.dispatch (/home/leandro/todo-project/node_modules/express/lib/router/route.js:119:3)
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at /home/leandro/todo-project/node_modules/express/lib/router/index.js:284:15
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:365:14)
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:376:14)
-    at Function.process_params (/home/leandro/todo-project/node_modules/express/lib/router/index.js:421:3)
-
-[2025-02-21T20:09:27.784Z] DELETE /api/usuarios/1 - Error: Cannot read properties of undefined (reading 'id')
-Stack: TypeError: Cannot read properties of undefined (reading 'id')
-    at /home/leandro/todo-project/src/controllers/UserController.ts:20:27
-    at /home/leandro/todo-project/src/middleware/asyncHandler.ts:6:21
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at next (/home/leandro/todo-project/node_modules/express/lib/router/route.js:149:13)
-    at Route.dispatch (/home/leandro/todo-project/node_modules/express/lib/router/route.js:119:3)
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at /home/leandro/todo-project/node_modules/express/lib/router/index.js:284:15
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:365:14)
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:376:14)
-    at Function.process_params (/home/leandro/todo-project/node_modules/express/lib/router/index.js:421:3)
-
-[2025-02-21T20:09:27.786Z] DELETE /api/usuarios/1 - Error: Cannot read properties of undefined (reading 'id')
-Stack: TypeError: Cannot read properties of undefined (reading 'id')
-    at /home/leandro/todo-project/src/controllers/UserController.ts:20:27
-    at /home/leandro/todo-project/src/middleware/asyncHandler.ts:6:21
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at next (/home/leandro/todo-project/node_modules/express/lib/router/route.js:149:13)
-    at Route.dispatch (/home/leandro/todo-project/node_modules/express/lib/router/route.js:119:3)
-    at Layer.handle [as handle_request] (/home/leandro/todo-project/node_modules/express/lib/router/layer.js:95:5)
-    at /home/leandro/todo-project/node_modules/express/lib/router/index.js:284:15
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:365:14)
-    at param (/home/leandro/todo-project/node_modules/express/lib/router/index.js:376:14)
-    at Function.process_params (/home/leandro/todo-project/node_modules/express/lib/router/index.js:421:3)
-
-[2025-02-21T20:20:00.310Z] PATCH /api/usuarios/1 - Error: Usuário não encontrado
+[2025-02-26T22:00:54.508Z] PATCH /api/usuarios/1 - Error: Usuário não encontrado
 Stack: Error: Usuário não encontrado
     at /home/leandro/todo-project/tests/integration/userController.test.ts:71:9
     at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
@@ -128,7 +50,7 @@ Stack: Error: Usuário não encontrado
     at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
     at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
 
-[2025-02-21T20:20:00.317Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
+[2025-02-26T22:00:54.515Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
 Stack: Error: Usuário não encontrado
     at /home/leandro/todo-project/tests/integration/userController.test.ts:105:9
     at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
@@ -141,176 +63,7 @@ Stack: Error: Usuário não encontrado
     at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
     at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
 
-[2025-02-21T20:20:14.178Z] PATCH /api/usuarios/1 - Error: Usuário não encontrado
-Stack: Error: Usuário não encontrado
-    at /home/leandro/todo-project/tests/integration/userController.test.ts:71:9
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
-    at new Promise (<anonymous>)
-    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
-    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-
-[2025-02-21T20:20:14.185Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
-Stack: Error: Usuário não encontrado
-    at /home/leandro/todo-project/tests/integration/userController.test.ts:105:9
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
-    at new Promise (<anonymous>)
-    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
-    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-
-[2025-02-21T20:20:37.211Z] PATCH /api/usuarios/1 - Error: Usuário não encontrado
-Stack: Error: Usuário não encontrado
-    at /home/leandro/todo-project/tests/integration/userController.test.ts:71:9
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
-    at new Promise (<anonymous>)
-    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
-    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-
-[2025-02-21T20:20:37.219Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
-Stack: Error: Usuário não encontrado
-    at /home/leandro/todo-project/tests/integration/userController.test.ts:105:9
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
-    at new Promise (<anonymous>)
-    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
-    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-
-[2025-02-21T20:20:37.216Z] GET /api/usuarios/1/tarefas - Error: Service Error
-Stack: Error: Service Error
-    at /home/leandro/todo-project/tests/integration/taskController.test.ts:217:21
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
-    at new Promise (<anonymous>)
-    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
-    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-
-[2025-02-24T19:29:39.053Z] PATCH /api/usuarios/1 - Error: Usuário não encontrado
-Stack: Error: Usuário não encontrado
-    at /home/leandro/todo-project/tests/integration/userController.test.ts:71:9
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
-    at new Promise (<anonymous>)
-    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
-    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-
-[2025-02-24T19:29:39.061Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
-Stack: Error: Usuário não encontrado
-    at /home/leandro/todo-project/tests/integration/userController.test.ts:105:9
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
-    at new Promise (<anonymous>)
-    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
-    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-
-[2025-02-24T19:29:39.063Z] GET /api/usuarios/1/tarefas - Error: Service Error
-Stack: Error: Service Error
-    at /home/leandro/todo-project/tests/integration/taskController.test.ts:217:21
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
-    at new Promise (<anonymous>)
-    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
-    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-
-[2025-02-24T21:04:11.746Z] PATCH /api/usuarios/1 - Error: Usuário não encontrado
-Stack: Error: Usuário não encontrado
-    at /home/leandro/todo-project/tests/integration/userController.test.ts:71:9
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
-    at new Promise (<anonymous>)
-    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
-    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-
-[2025-02-24T21:04:11.754Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
-Stack: Error: Usuário não encontrado
-    at /home/leandro/todo-project/tests/integration/userController.test.ts:105:9
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
-    at new Promise (<anonymous>)
-    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
-    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-
-[2025-02-24T21:04:11.757Z] GET /api/usuarios/1/tarefas - Error: Service Error
-Stack: Error: Service Error
-    at /home/leandro/todo-project/tests/integration/taskController.test.ts:217:21
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
-    at new Promise (<anonymous>)
-    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
-    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-
-[2025-02-24T21:35:17.213Z] PATCH /api/usuarios/1 - Error: Usuário não encontrado
-Stack: Error: Usuário não encontrado
-    at /home/leandro/todo-project/tests/integration/userController.test.ts:71:9
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
-    at new Promise (<anonymous>)
-    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
-    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-
-[2025-02-24T21:35:17.221Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
-Stack: Error: Usuário não encontrado
-    at /home/leandro/todo-project/tests/integration/userController.test.ts:105:9
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:558:28
-    at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:61:24
-    at new Promise (<anonymous>)
-    at runWithTimeout (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:41:12)
-    at runTest (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1137:17)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
-
-[2025-02-24T21:35:17.235Z] GET /api/usuarios/1/tarefas - Error: Service Error
+[2025-02-26T22:00:54.518Z] GET /api/usuarios/1/tarefas - Error: Service Error
 Stack: Error: Service Error
     at /home/leandro/todo-project/tests/integration/taskController.test.ts:217:21
     at file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:174:14

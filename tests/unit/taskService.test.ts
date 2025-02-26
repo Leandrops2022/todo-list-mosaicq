@@ -8,6 +8,8 @@ import { DeleteResult, UpdateResult } from 'typeorm';
 import { plainToInstance } from 'class-transformer';
 import { UpdateTaskDto } from '../../src/dtos/UpdateTaskDto';
 import { TaskPresentationDto } from '../../src/dtos/TaskPresentationDto';
+import { BadRequestError } from '../../src/errors/BadRequestError';
+import UnauthorizedError from '../../src/errors/UnauthorizedError';
 
 vi.mock('../../src/repositories/TaskRepository');
 
@@ -19,6 +21,7 @@ describe('TaskService', () => {
     vi.restoreAllMocks();
   });
 
+  const newDate = new Date();
   const mockUserId = 1;
   const mockTask: Task = {
     id: 1,
@@ -26,13 +29,18 @@ describe('TaskService', () => {
     description: 'Test Description',
     status: TaskStatus.PENDING,
     user: { id: mockUserId },
+    created_at: newDate,
   };
 
-  const taskPresentationDto = plainToInstance(TaskPresentationDto, mockTask);
+  const taskPresentationDto = plainToInstance(TaskPresentationDto, mockTask, {
+    excludeExtraneousValues: true,
+  });
+
   describe('createTask', () => {
     it('should create and return a new task', async () => {
       TaskRepository.create = vi.fn().mockReturnValue(mockTask);
       TaskRepository.save = vi.fn().mockResolvedValue(mockTask);
+      TaskRepository.findOne = vi.fn().mockResolvedValue(mockTask);
 
       const response = await service.createTask(mockTask, mockUserId);
 
@@ -41,9 +49,12 @@ describe('TaskService', () => {
         user: { id: mockUserId },
       });
       expect(TaskRepository.save).toHaveBeenCalledWith(mockTask);
+      expect(TaskRepository.findOne).toHaveBeenCalledWith({
+        where: { id: mockTask.id },
+      });
       expect(response).toEqual({
         message: 'Tarefa criada com sucesso',
-        data: mockTask,
+        data: taskPresentationDto,
       });
     });
   });
@@ -57,6 +68,7 @@ describe('TaskService', () => {
       expect(TaskRepository.find).toHaveBeenCalledWith({
         select: {
           created_at: true,
+          description: true,
           id: true,
           status: true,
           title: true,
@@ -108,10 +120,7 @@ describe('TaskService', () => {
   describe('updateTask', () => {
     it('should update and return the task', async () => {
       TaskRepository.findOne = vi.fn().mockResolvedValue(mockTask);
-      TaskRepository.save = vi.fn().mockResolvedValue({
-        message: 'Tarefa atualizada com sucesso',
-        data: mockTask,
-      });
+      TaskRepository.save = vi.fn().mockResolvedValue(mockTask);
 
       const updateDto = plainToInstance(UpdateTaskDto, {
         id: mockTask.id,
@@ -128,14 +137,58 @@ describe('TaskService', () => {
         where: { id: mockTask.id },
         relations: ['user'],
       });
-      expect(TaskRepository.save).toHaveBeenCalledWith(updateDto);
+      expect(TaskRepository.save).toHaveBeenCalledWith(
+        expect.objectContaining({
+          id: mockTask.id,
+          title: 'Updated Task',
+        })
+      );
       expect(response).toEqual({
         message: 'Tarefa atualizada com sucesso',
-        data: {
-          message: 'Tarefa atualizada com sucesso',
-          data: mockTask,
-        },
+        data: plainToInstance(TaskPresentationDto, mockTask, {
+          excludeExtraneousValues: true,
+        }),
       });
+    });
+
+    it('should throw BadRequestError if the DTO ID does not match the task ID', async () => {
+      const updateDto = plainToInstance(UpdateTaskDto, {
+        id: 999, // Mismatched ID
+        title: 'Updated Task',
+      });
+
+      await expect(
+        service.updateTask(updateDto, mockTask.id, mockUserId)
+      ).rejects.toThrow(BadRequestError);
+    });
+
+    it('should throw NotFoundError if the task does not exist', async () => {
+      TaskRepository.findOne = vi.fn().mockResolvedValue(null);
+
+      const updateDto = plainToInstance(UpdateTaskDto, {
+        id: mockTask.id,
+        title: 'Updated Task',
+      });
+
+      await expect(
+        service.updateTask(updateDto, mockTask.id, mockUserId)
+      ).rejects.toThrow(NotFoundError);
+    });
+
+    it('should throw UnauthorizedError if the logged-in user is not the task owner', async () => {
+      TaskRepository.findOne = vi.fn().mockResolvedValue({
+        ...mockTask,
+        user: { id: 999 }, // Different user
+      });
+
+      const updateDto = plainToInstance(UpdateTaskDto, {
+        id: mockTask.id,
+        title: 'Updated Task',
+      });
+
+      await expect(
+        service.updateTask(updateDto, mockTask.id, mockUserId)
+      ).rejects.toThrow(UnauthorizedError);
     });
   });
 

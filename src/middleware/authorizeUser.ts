@@ -8,8 +8,6 @@ const authorizeUser = (
 ): void => {
   const { uid } = req.params;
   const user = req.user as AuthenticatedUser;
-  console.log(user.id == parseInt(uid));
-  console.log(uid);
 
   if (!uid || parseInt(uid) != user.id) {
     res.status(403).json({

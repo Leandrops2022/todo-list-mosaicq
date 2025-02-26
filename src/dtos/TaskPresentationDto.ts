@@ -9,7 +9,7 @@ export class TaskPresentationDto {
   titulo!: string;
 
   @Expose({ name: 'description' })
-  descrição?: string;
+  descricao?: string;
 
   @Expose()
   status!: TaskStatus;

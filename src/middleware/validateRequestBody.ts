@@ -5,7 +5,9 @@ import { NextFunction, Response, Request } from 'express';
 export const validateRequestBody = <T>(dto: ClassConstructor<T>) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const dtoInstance = plainToInstance(dto, req.body);
+      const dtoInstance = plainToInstance(dto, req.body, {
+        excludeExtraneousValues: true,
+      });
       const errors = await validate(dtoInstance as object);
 
       if (errors.length > 0) {

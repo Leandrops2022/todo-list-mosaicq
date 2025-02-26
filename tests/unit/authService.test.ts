@@ -6,6 +6,11 @@ import { hash, compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { LoginDto } from '../../src/dtos/LoginDto';
 import { plainToInstance } from 'class-transformer';
+import {
+  UserPresentationDto,
+  UserPresentationDto,
+  UserPresentationDto,
+} from '../../src/dtos/UserPresentationDto';
 
 vi.mock('../../src/repositories/UserRepository');
 vi.mock('bcrypt', () => ({
@@ -45,8 +50,6 @@ describe('AuthService', () => {
       name: 'Simple test',
     });
 
-    console.log(result);
-
     expect(hash).toHaveBeenCalledWith('plaintext', 10);
     expect(UserRepository.save).toHaveBeenCalled();
     expect(result).toEqual({
@@ -61,22 +64,32 @@ describe('AuthService', () => {
     compare.mockResolvedValue(true);
     sign.mockReturnValue('fakeToken');
 
-    const loginDto: LoginDto = plainToInstance(LoginDto, { ...mockUser });
+    const loginDto: LoginDto = plainToInstance(
+      LoginDto,
+      { ...mockUser },
+      { excludeExtraneousValues: true }
+    );
 
     const result = await authService.login(loginDto);
+    const userPresentationDto = plainToInstance(UserPresentationDto, mockUser);
 
     expect(UserRepository.findOne).toHaveBeenCalledWith({
       select: {
-        email: true,
         id: true,
+        email: true,
         name: true,
+        password: true,
       },
       where: { email: loginDto.email },
     });
     expect(compare).toHaveBeenCalledWith(loginDto.password, mockUser.password);
     expect(result).toEqual({
       message: 'Logado com sucesso!',
-      data: mockUser,
+      data: {
+        id: userPresentationDto.id,
+        name: userPresentationDto.name,
+        email: userPresentationDto.email,
+      },
       token: 'fakeToken',
     });
   });

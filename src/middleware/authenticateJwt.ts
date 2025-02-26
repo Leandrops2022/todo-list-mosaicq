@@ -17,10 +17,9 @@ const authenticateJWT = (
     const token = authHeader.split(' ')[1];
 
     jwt.verify(token, secret, (err, decoded) => {
-      console.log(decoded);
       if (err || !decoded) {
-        res.status(403).json({
-          message: 'Você não tem autorização para acessar este recurso',
+        res.status(401).json({
+          message: 'Não autorizado. Token inválido ou expirado.',
         });
         return;
       }

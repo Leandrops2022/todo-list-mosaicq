@@ -3,25 +3,25 @@ services:
     image: postgres:17
     container_name: postgres_db_todo
     environment:
-      POSTGRES_USER: root 
+      POSTGRES_USER: root
       POSTGRES_PASSWORD: root
       POSTGRES_DB: todo_list
     ports:
       - "5433:5432"
     volumes:
       - todo_data_lps1402252051:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U root -d todo_list"]
       interval: 10s
       timeout: 5s
       retries: 5
 
-  app:
+  backend:
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
-    container_name: todo_app
+    container_name: todo_backend
     depends_on:
       postgres:
         condition: service_healthy
@@ -34,6 +34,16 @@ services:
       DATABASE_PASSWORD: root
       DATABASE_NAME: todo_list
       NODE_ENV: production
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: todo_frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173" 
 
 volumes:
   todo_data_lps1402252051:

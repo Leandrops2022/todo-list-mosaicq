@@ -76,3 +76,42 @@ Stack: Error: Service Error
     at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
     at runSuite (file:///home/leandro/todo-project/node_modules/@vitest/runner/dist/index.js:1291:15)
 
+[2025-02-27T20:55:11.908Z] PATCH /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/backend/tests/integration/userController.test.ts:71:9
+    at file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-27T20:55:11.915Z] DELETE /api/usuarios/1 - Error: Usuário não encontrado
+Stack: Error: Usuário não encontrado
+    at /home/leandro/todo-project/backend/tests/integration/userController.test.ts:105:9
+    at file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:1291:15)
+
+[2025-02-27T20:55:11.924Z] GET /api/usuarios/1/tarefas - Error: Service Error
+Stack: Error: Service Error
+    at /home/leandro/todo-project/backend/tests/integration/taskController.test.ts:217:21
+    at file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:174:14
+    at file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:558:28
+    at file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:61:24
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:41:12)
+    at runTest (file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:1137:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runSuite (file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:1291:15)
+    at runSuite (file:///home/leandro/todo-project/backend/node_modules/@vitest/runner/dist/index.js:1291:15)
+

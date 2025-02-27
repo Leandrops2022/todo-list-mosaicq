@@ -1,0 +1,15 @@
+@use 'sass:color';
+
+//colors
+$common-red: red;
+$lightnened-red: color.scale($common-red, $lightness: 10%);
+
+//backgrounds
+$background: #f5ffff;
+
+//shadows
+$textShadow: black;
+$boxShadow: 10px 10px 3px rgb(227, 236, 241);
+
+//borders
+$lightBorder: 2px solid rgb(227, 236, 241);

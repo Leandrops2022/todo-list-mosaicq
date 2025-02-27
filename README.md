@@ -40,7 +40,7 @@ Para rodar o projeto, é necessário ter instalado na sua máquina:
 node --version
 ```
 
-Caso não tenha o Node.js instalado, baixe e instale a partir do site oficial.
+Caso não tenha o Node.js instalado, baixe e instale a partir do site oficial: [nodejs.org/pt](https://nodejs.org/pt).
 
 ### Docker:
 
@@ -48,7 +48,7 @@ Caso não tenha o Node.js instalado, baixe e instale a partir do site oficial.
 docker --version
 ```
 
-Se o Docker não estiver instalado, acesse docker.com e siga as instruções para instalar o Docker Desktop.
+Se o Docker não estiver instalado, acesse [docker.com](docker.com) e siga as instruções do site  para instalar o Docker Desktop em sua máquina.
 
 ## Como Executar o Projeto
 
@@ -59,43 +59,40 @@ Se o Docker não estiver instalado, acesse docker.com e siga as instruções par
    cd todo-list-mosaicq
    ```
 
-2. ### Instale as dependências:
-
-   ```bash
-   npm install
-   ```
-
-3. ### Execute o comando para criar a build do projeto:
+2. ### Execute o comando para criar a build do projeto:
 
    ```bash
    npm run build
    ```
 
-4. ### Suba os contêineres com Docker Compose:
+3. ### Suba os contêineres com o comando a seguir:
 
    ```bash
-   docker compose build
    docker compose up
    ```
 
-5. ### Aguarde de 5 a 10 segundos até que a mensagem abaixo apareça no terminal:
+4. ### Aguarde de 5 a 10 segundos até que a mensagem abaixo apareça no terminal:
 
    ```bash
-   Server is running on http://localhost:3000
-   todo_app | Swagger docs available at http://localhost:3000/api-docs
+   todo_backend      | Server is running on http://localhost:3000
+   todo_backend      | Swagger docs available at http://localhost:3000/api-docs
+   todo_frontend     |  INFO  Accepting connections at http://localhost:5173
    ```
 
-6. ### Acesse a aplicação:
+5. ### Acesse a aplicação:
 
    A API estará disponível em: http://localhost:3000
 
    A documentação Swagger estará disponível em: http://localhost:3000/api-docs
 
+   A interface de usuário estará disponível em http://localhost:5173
+
 ## Testes
 
-O projeto conta com testes unitários e de integração para validar o funcionamento das principais funcionalidades. Para executar os testes, utilize o seguinte comando:
+O projeto conta com testes unitários e de integração para validar o funcionamento das principais funcionalidades. Para executar os testes, acesse a pasta /backend e utilize os seguintes comandos no terminal:
 
 ```bash
+npm install
 npm run test
 ```
 
@@ -104,9 +101,19 @@ npm run test
 Os testes foram desenvolvidos utilizando Vitest e Supertest.
 
 - Testes Unitários: Validam funções e métodos isolados.
-- Testes de Integração: Validam a interação entre os componentes da aplicação, incluindo requisições HTTP.
+- Testes de Integração: Validam a interação entre os componentes da aplicação, simulando requisições HTTP.
 
 ## Estrutura do Projeto
+   ```bash
+      
+      |--backend/
+      |  |--assets/
+      |  |--src/
+      |  |--tests/
+      |--frontend/
+      |  |--public/
+      |  |--src/
+   ```
 
 ## Licença
 

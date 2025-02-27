@@ -1,7 +1,7 @@
 # Projeto Todo List - Processo Seletivo MosaicQ
 
 <p align="center">
-  <img src="assets/capa.jpg" alt="Capa do Projeto">
+  <img src="backend/assets/capa.jpg" alt="Capa do Projeto">
 </p>
 
 ## Sobre o projeto

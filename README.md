@@ -6,7 +6,7 @@
 
 ## Sobre o projeto
 
-Este projeto faz parte do processo seletivo para a vaga de Desenvolvedor Back End Júnior na empresa MosaicQ. A aplicação consiste em um sistema para gerenciamento de tarefas, onde os usuários podem registrar tarefas com título, descrição, data de criação e status (pendente, em andamento ou concluída).
+Este projeto faz parte do processo seletivo para a vaga de Desenvolvedor Back End na empresa MosaicQ. A aplicação consiste em um sistema para gerenciamento de tarefas, onde os usuários podem registrar tarefas com título, descrição, data de criação e status (pendente, em andamento ou concluída).
 
 ## Tecnologias Utilizadas
 

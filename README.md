@@ -1,4 +1,4 @@
-# Projeto Todo List - Processo Seletivo MosaicQ
+# Todo List
 
 <p align="center">
   <img src="backend/assets/capa.jpg" alt="Capa do Projeto">
@@ -6,7 +6,7 @@
 
 ## Sobre o projeto
 
-Este projeto faz parte do processo seletivo para a vaga de Desenvolvedor Back End na empresa MosaicQ. A aplicação consiste em um sistema para gerenciamento de tarefas, onde os usuários podem registrar tarefas com título, descrição, data de criação e status (pendente, em andamento ou concluída).
+Este projeto simples foi desenvolvido como parte de um processo seletivo para a demonstração de habilidades em backend, frontend e estruturação de projetos. A aplicação consiste em um sistema para gerenciamento de tarefas, onde os usuários podem registrar tarefas com título, descrição, data de criação e status (pendente, em andamento ou concluída).
 
 ## Tecnologias Utilizadas
 
